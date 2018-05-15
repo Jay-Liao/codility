@@ -1,3 +1,4 @@
+# ref: https://codility.com/media/train/Iterations.pdf
 # 1.1 For loops
 
 
