@@ -1,5 +1,5 @@
 # Lessons
-Here is all lessons on [codility](https://www.codility.com/) that I have completed.
+Here are all lessons on [codility](https://www.codility.com/) that I have done.
 
 TODO:
 - [x] Lesson 1 - Iterations
