@@ -1,4 +1,4 @@
-# Lesson2 Array
+# Lesson2 - Array
 ## CyclicRotation
 ---
 ```
