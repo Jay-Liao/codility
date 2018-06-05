@@ -5,9 +5,9 @@ TODO:
 - [x] Lesson 1 - Iterations
 - [x] Lesson 2 - Arrays
 - [x] Lesson 3 - Time Complexity
-- [ ] Lesson 4 - Counting Elements
--- 4-4 MaxCounters 88%
+- [x] Lesson 4 - Counting Elements
 - [ ] Lesson 5 - Prefix Sums
+-- [ ] 5-1 CountDiv 50%
 - [ ] Lesson 6 - Sorting
 - [ ] Lesson 7 - Stacks and Queues
 - [ ] Lesson 8 - Leader
@@ -523,7 +523,7 @@ def solution(A):
         return 1
 ```
 
-### 4-4 MaxCounters 88%
+### 4-4 MaxCounters 100%
 ---
 ```
 Task description
@@ -591,15 +591,65 @@ Copyright 2009–2018 by Codility Limited. All Rights Reserved. Unauthorized cop
 
 ```py
 def solution(N, A):
-    counter = [0] * N
-    max_count = 0
+    max_counter = N + 1
+    counter_map = dict()
+    # keep max_value
+    max_value = 0
+    # keep base_value
+    base_value = 0
     for num in A:
-        count_location = num - 1
+        index = num - 1
+        # 1 <= X <= N, increase(X)
         if num <= N:
-            counter[count_location] += 1
-            if counter[count_location] > max_count:
-                max_count = counter[count_location]
-        elif num == N + 1:
-            counter = [max_count] * N
+            counter_value = counter_map.get(index, base_value)
+            counter_value += 1
+            counter_map[index] = counter_value
+            if counter_value > max_value:
+                max_value = counter_value
+        # X = N + 1, set max_counter
+        elif num == max_counter:
+            counter_map = dict()
+            base_value = max_value
+            
+    counter_list = [0] * N
+    for index in range(len(counter_list)):
+        counter_list[index] = counter_map.get(index, base_value)
+    return counter_list
+```
+
+## Lesson 5 - Prefix Sums
+### 5-1 CountDiv 50%
+---
+```
+Task description
+Write a function:
+
+def solution(A, B, K)
+
+that, given three integers A, B and K, returns the number of integers within the range [A..B] that are divisible by K, i.e.:
+
+{ i : A ≤ i ≤ B, i mod K = 0 }
+
+For example, for A = 6, B = 11 and K = 2, your function should return 3, because there are three numbers divisible by 2 within the range [6..11], namely 6, 8 and 10.
+
+Assume that:
+
+A and B are integers within the range [0..2,000,000,000];
+K is an integer within the range [1..2,000,000,000];
+A ≤ B.
+Complexity:
+
+expected worst-case time complexity is O(1);
+expected worst-case space complexity is O(1).
+Copyright 2009–2018 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.
+```
+
+```py
+def solution(A, B, K):
+    counter = 0
+    for num in range(A, B + 1):
+        if num % K == 0:
+            counter += 1
     return counter
 ```
+
