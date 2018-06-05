@@ -7,7 +7,6 @@ TODO:
 - [x] Lesson 3 - Time Complexity
 - [x] Lesson 4 - Counting Elements
 - [ ] Lesson 5 - Prefix Sums
--- [ ] 5-1 CountDiv 50%
 - [ ] Lesson 6 - Sorting
 - [ ] Lesson 7 - Stacks and Queues
 - [ ] Lesson 8 - Leader
@@ -618,7 +617,7 @@ def solution(N, A):
 ```
 
 ## Lesson 5 - Prefix Sums
-### 5-1 CountDiv 50%
+### 5-1 CountDiv 100%
 ---
 ```
 Task description
@@ -646,10 +645,9 @@ Copyright 2009–2018 by Codility Limited. All Rights Reserved. Unauthorized cop
 
 ```py
 def solution(A, B, K):
-    counter = 0
-    for num in range(A, B + 1):
-        if num % K == 0:
-            counter += 1
-    return counter
+    answer = B // K - A // K
+    if A % K == 0:
+        answer += 1
+    return answer
 ```
 
