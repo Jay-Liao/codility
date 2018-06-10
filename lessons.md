@@ -858,3 +858,167 @@ def solution(A):
             idx = index
     return idx
 ```
+## Lesson 6 - Sorting
+### 6-1 MaxProductOfThree 100%
+---
+```
+Task description
+A non-empty array A consisting of N integers is given. The product of triplet (P, Q, R) equates to A[P] * A[Q] * A[R] (0 ≤ P < Q < R < N).
+
+For example, array A such that:
+
+  A[0] = -3
+  A[1] = 1
+  A[2] = 2
+  A[3] = -2
+  A[4] = 5
+  A[5] = 6
+contains the following example triplets:
+
+(0, 1, 2), product is −3 * 1 * 2 = −6
+(1, 2, 4), product is 1 * 2 * 5 = 10
+(2, 4, 5), product is 2 * 5 * 6 = 60
+Your goal is to find the maximal product of any triplet.
+
+Write a function:
+
+def solution(A)
+
+that, given a non-empty array A, returns the value of the maximal product of any triplet.
+
+For example, given array A such that:
+
+  A[0] = -3
+  A[1] = 1
+  A[2] = 2
+  A[3] = -2
+  A[4] = 5
+  A[5] = 6
+the function should return 60, as the product of triplet (2, 4, 5) is maximal.
+
+Assume that:
+
+N is an integer within the range [3..100,000];
+each element of array A is an integer within the range [−1,000..1,000].
+Complexity:
+
+expected worst-case time complexity is O(N*log(N));
+expected worst-case space complexity is O(1) (not counting the storage required for input arguments).
+Copyright 2009–2018 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.
+```
+
+```py
+44% 22m
+def solution(A):
+    # sorted in nlon desc
+    A = sorted(A, reverse=True)
+    # return the largest 3 elem
+    return A[0] * A[1] * A[2]
+```
+
+```py
+77% 18m
+def solution(A):
+    # build positive/negative num list
+    PA = list()
+    NA = list()
+    is_zero = False
+    for num in A:
+        if num > 0:
+            PA.append(num)
+        else:
+            NA.append(num)
+        if num == 0:
+            is_zero = True
+            
+    PA = sorted(PA, reverse=True)
+    NA = sorted(NA, reverse=True)
+    """
+    there are some cases would be largest three product
+    1. 3 largest positive numbers
+    2. 1 largest positive number * 2 largest negative numbers
+    3. 3 smallest negative numbers
+    4. zero
+    """
+    case1 = None
+    case2 = None
+    case3 = None
+    case4 = None if not is_zero else 0
+    if len(PA) >= 3:
+        case1 = PA[0] * PA[1] * PA[2]
+    if len(PA) > 0 and len(NA) >= 2:
+        case2 = PA[0] * NA[0] * NA[1]
+    if len(PA) == 0:
+        case3 = NA[0] * NA[1] * NA[2]
+    candidates = [case1, case2, case3, case4]
+    candidates = [candidate for candidate in candidates if candidate is not None]
+    candidates = sorted(candidates, reverse=True)
+    return candidates[0]
+```
+
+```py
+100% 8m
+def solution(A):
+    # build positive/negative num list
+    PA = list()
+    NA = list()
+    is_zero = False
+    for num in A:
+        if num > 0:
+            PA.append(num)
+        elif num < 0:
+            NA.append(num)
+        else:
+            is_zero = True
+            
+    PA = sorted(PA, reverse=True)
+    NA = sorted(NA)
+    """
+    there are some cases would be largest three product
+    1. 3 largest positive numbers
+    2. 1 largest positive number * 2 largest negative numbers
+    3. 3 smallest negative numbers
+    4. zero
+    """
+    case1 = PA[0] * PA[1] * PA[2] if len(PA) >= 3 else None
+    case2 = PA[0] * NA[0] * NA[1] if len(PA) > 0 and len(NA) >= 2 else None
+    case3 = NA[-1] * NA[-2] * NA[-3] if len(PA) == 0 else None
+    case4 = 0 if is_zero else None
+    candidates = [case1, case2, case3, case4]
+    candidates = [candidate for candidate in candidates if candidate is not None]
+    candidates = sorted(candidates, reverse=True)
+    return candidates[0]
+```
+
+### 6-2 Distinct
+---
+```
+Task description
+
+```
+
+```py
+
+```
+
+### 6-3 Triangle
+---
+```
+Task description
+
+```
+
+```py
+
+```
+
+### 6-4 NumberOfDiscIntersections
+---
+```
+Task description
+
+```
+
+```py
+
+```
