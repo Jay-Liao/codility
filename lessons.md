@@ -1020,7 +1020,7 @@ Copyright 2009–2018 by Codility Limited. All Rights Reserved. Unauthorized cop
 ```py
 100% 2m
 def solution(A):
-    return len(list(set(A)))
+    return len(set(A))
 ```
 
 ### 6-3 Triangle
