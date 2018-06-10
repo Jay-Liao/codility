@@ -1023,15 +1023,93 @@ def solution(A):
     return len(set(A))
 ```
 
-### 6-3 Triangle
+### 6-3 Triangle 100%
 ---
 ```
 Task description
+An array A consisting of N integers is given. A triplet (P, Q, R) is triangular if 0 ≤ P < Q < R < N and:
 
+A[P] + A[Q] > A[R],
+A[Q] + A[R] > A[P],
+A[R] + A[P] > A[Q].
+For example, consider array A such that:
+
+  A[0] = 10    A[1] = 2    A[2] = 5
+  A[3] = 1     A[4] = 8    A[5] = 20
+Triplet (0, 2, 4) is triangular.
+
+Write a function:
+
+int solution(int A[], int N);
+
+that, given an array A consisting of N integers, returns 1 if there exists a triangular triplet for this array and returns 0 otherwise.
+
+For example, given array A such that:
+
+  A[0] = 10    A[1] = 2    A[2] = 5
+  A[3] = 1     A[4] = 8    A[5] = 20
+the function should return 1, as explained above. Given array A such that:
+
+  A[0] = 10    A[1] = 50    A[2] = 5
+  A[3] = 1
+the function should return 0.
+
+Assume that:
+
+N is an integer within the range [0..100,000];
+each element of array A is an integer within the range [−2,147,483,648..2,147,483,647].
+Complexity:
+
+expected worst-case time complexity is O(N*log(N));
+expected worst-case space complexity is O(N) (not counting the storage required for input arguments).
+Copyright 2009–2018 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.
 ```
 
 ```py
+75% 15m
+def solution(A):
+    # early return if N is invalid
+    if len(A) < 3:
+        return 0
+    
+    # check all combinations    
+    for i in range(len(A) - 2):
+        for j in range(i + 1, len(A) - 1):
+            for k in range(j + 1, len(A)):
+                if is_triangular(A[i], A[j], A[k]):
+                    return 1
+    return 0
 
+
+def is_triangular(a, b, c):
+    return (a + b > c) and (a + c) > b and (b + c) > a
+```
+
+```py
+100% 26m
+ref: https://codesays.com/2014/solution-to-triangle-by-codility/
+def solution(A):
+    # early return in N is invalid
+    if len(A) < 3:
+        return 0
+    
+    # sort A asc, ex. -11, -10, -9, -8, 0, 1, 2, 3, 99, 100
+    A = sorted(A)
+    for index in range(len(A) - 2):
+        """
+        if A[index+2] >= 0
+        A[index+1] + A[index+2] > A[index]
+        A[index+2] + A[index] > A[index+1]
+        only check:
+            A[index] + A[index+1] > A[index+2]
+            
+        if A[index+2] < 0 just pass
+        because A < B < C < 0, B + C < A
+        """
+        if A[index+2] >= 0 and A[index] + A[index+1] > A[index+2]:
+            return 1
+    
+    return 0
 ```
 
 ### 6-4 NumberOfDiscIntersections
