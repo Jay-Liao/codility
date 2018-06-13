@@ -8,7 +8,7 @@ TODO:
 - [x] Lesson 4 - Counting Elements
 - [x] Lesson 5 - Prefix Sums
 - [x] Lesson 6 - Sorting
-- [ ] Lesson 7 - Stacks and Queues
+- [x] Lesson 7 - Stacks and Queues
 - [ ] Lesson 8 - Leader
 - [ ] Lesson 9 - Maximum slice problem
 - [ ] Lesson 10 - Prime and composite numbers
@@ -1381,9 +1381,147 @@ Copyright 2009–2018 by Codility Limited. All Rights Reserved. Unauthorized cop
 ```
 
 ```py
+37% 16m
+def solution(A, B):
+    # keep fish in stack
+    # pop fish one by one if encounter oppsite direction
+    fish_stack = list()
+    index = len(A) - 1
+    while index >= 0:
+        current_fish = (A[index], B[index])
+        if len(fish_stack) == 0 or current_fish[-1] == fish_stack[-1][-1]:
+            fish_stack.append(current_fish)
+        else:
+            while len(fish_stack) > 0 and current_fish[0] > fish_stack[-1][0]:
+                fish_stack.pop()
+            if len(fish_stack) == 0:
+                fish_stack.append(current_fish)
+        index -= 1
+    return len(fish_stack)
+```
+
+```py
+100% 25m
+def solution(A, B):
+    pass_fish = 0
+    downstream_fish = list()
+    for index in range(len(A)):
+        # encounter upstream fish
+        if B[index] == 0:
+            if len(downstream_fish) == 0:
+                pass_fish += 1
+            else:
+                while len(downstream_fish) > 0 and downstream_fish[-1] < A[index]:
+                    downstream_fish.pop()
+                if len(downstream_fish) == 0:
+                    pass_fish += 1
+        # encounter downstream fish
+        else:
+            downstream_fish.append(A[index])
+    return pass_fish + len(downstream_fish)
 ```
 
 ### 7-4 Nesting
+---
+```
+Task description
+A string S consisting of N characters is called properly nested if:
+
+S is empty;
+S has the form "(U)" where U is a properly nested string;
+S has the form "VW" where V and W are properly nested strings.
+For example, string "(()(())())" is properly nested but string "())" isn't.
+
+Write a function:
+
+def solution(S)
+
+that, given a string S consisting of N characters, returns 1 if string S is properly nested and 0 otherwise.
+
+For example, given S = "(()(())())", the function should return 1 and given S = "())", the function should return 0, as explained above.
+
+Assume that:
+
+N is an integer within the range [0..1,000,000];
+string S consists only of the characters "(" and/or ")".
+Complexity:
+
+expected worst-case time complexity is O(N);
+expected worst-case space complexity is O(1) (not counting the storage required for input arguments).
+Copyright 2009–2018 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.
+```
+
+```py
+12% 7m
+def solution(S):
+    if len(S) == 0:
+        return 1
+    if len(S) % 2 > 0:
+        return 0
+    
+    cmap = {
+        "(": ")",
+        ")": "("
+    }
+    
+    for index in range(len(S)):
+        if cmap[S[index]] != S[len(S) - 1 - index]:
+            return 0
+    return 1
+```
+
+```py
+50% 7m
+def solution(S):
+    if len(S) == 0:
+        return 1
+    if len(S) % 2 > 0:
+        return 0
+    if S[0] != "(":
+        return 0
+    
+    cmap = {
+        "(": ")",
+        ")": "("
+    }
+    
+    for index in range(len(S)):
+        if cmap[S[index]] != S[len(S) - 1 - index]:
+            return 0
+    return 1
+```
+
+```py
+100% 9m
+def solution(S):
+    if len(S) == 0:
+        return 1
+    if len(S) % 2 > 0:
+        return 0
+    
+    stack = list()
+    for c in S:
+        if c == "(":
+            stack.append(c)
+        else:
+            try:
+                stack.pop()
+            except:
+                return 0
+    return 1 if len(stack) == 0 else 0
+```
+
+## Lesson 8 - Leader
+### 8-1 Dominator
+---
+```
+Task description
+```
+
+```py
+```
+
+### 8-2 EquiLeader
 ---
 ```
 Task description
