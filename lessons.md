@@ -9,7 +9,7 @@ TODO:
 - [x] Lesson 5 - Prefix Sums
 - [x] Lesson 6 - Sorting
 - [x] Lesson 7 - Stacks and Queues
-- [ ] Lesson 8 - Leader
+- [x] Lesson 8 - Leader
 - [ ] Lesson 9 - Maximum slice problem
 - [ ] Lesson 10 - Prime and composite numbers
 - [ ] Lesson 11 - Sieve of Eratosthenes
