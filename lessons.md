@@ -836,7 +836,10 @@ Copyright 2009–2018 by Codility Limited. All Rights Reserved. Unauthorized cop
 ```
 
 ```py
+"""
 ref: https://www.martinkysel.com/codility-minavgtwoslice-solution/
+"""
+
 def solution(A):
     min_v = None
     idx = -1
@@ -909,7 +912,10 @@ Copyright 2009–2018 by Codility Limited. All Rights Reserved. Unauthorized cop
 ```
 
 ```py
+"""
 44% 22m
+"""
+
 def solution(A):
     # sorted in nlon desc
     A = sorted(A, reverse=True)
@@ -918,7 +924,10 @@ def solution(A):
 ```
 
 ```py
+"""
 77% 18m
+"""
+
 def solution(A):
     # build positive/negative num list
     PA = list()
@@ -958,7 +967,10 @@ def solution(A):
 ```
 
 ```py
+"""
 100% 8m
+"""
+
 def solution(A):
     # build positive/negative num list
     PA = list()
@@ -1019,7 +1031,10 @@ Copyright 2009–2018 by Codility Limited. All Rights Reserved. Unauthorized cop
 ```
 
 ```py
+"""
 100% 2m
+"""
+
 def solution(A):
     return len(set(A))
 ```
@@ -1067,7 +1082,10 @@ Copyright 2009–2018 by Codility Limited. All Rights Reserved. Unauthorized cop
 ```
 
 ```py
+"""
 75% 15m
+"""
+
 def solution(A):
     # early return if N is invalid
     if len(A) < 3:
@@ -1087,8 +1105,11 @@ def is_triangular(a, b, c):
 ```
 
 ```py
+"""
 100% 26m
 ref: https://codesays.com/2014/solution-to-triangle-by-codility/
+"""
+
 def solution(A):
     # early return in N is invalid
     if len(A) < 3:
@@ -1155,7 +1176,10 @@ Copyright 2009–2018 by Codility Limited. All Rights Reserved. Unauthorized cop
 ```
 
 ```py
+"""
 56% 12m
+"""
+
 def solution(A):
     intersects = 0
     # intersect mean any point in other disc
@@ -1171,8 +1195,11 @@ def solution(A):
 ```
 
 ```py
+"""
 100% 57m
 ref: http://www.lucainvernizzi.net/blog/2014/11/21/codility-beta-challenge-number-of-disc-intersections/
+"""
+
 def solution(A):
     events = []
     for i, a in enumerate(A):
@@ -1223,8 +1250,11 @@ Copyright 2009–2018 by Codility Limited. All Rights Reserved. Unauthorized cop
 ```
 
 ```py
+"""
 100% 60m
 ref: https://www.martinkysel.com/codility-stonewall-solution/
+"""
+
 def solution(H):
     if len(H) <= 1:
         return len(H)
@@ -1275,7 +1305,10 @@ Copyright 2009–2018 by Codility Limited. All Rights Reserved. Unauthorized cop
 ```
 
 ```py
+"""
 50% 20m
+"""
+
 def solution(S):
     if len(S) == 0:
         return 1
@@ -1303,8 +1336,11 @@ def solution(S):
 ```
 
 ```py
+"""
 100% 10m
 ref: https://codesays.com/2014/solution-to-brackets-by-codility/
+"""
+
 def solution(S):
     if len(S) % 2 > 0:
         return 0
@@ -1381,7 +1417,10 @@ Copyright 2009–2018 by Codility Limited. All Rights Reserved. Unauthorized cop
 ```
 
 ```py
+"""
 37% 16m
+"""
+
 def solution(A, B):
     # keep fish in stack
     # pop fish one by one if encounter oppsite direction
@@ -1401,7 +1440,10 @@ def solution(A, B):
 ```
 
 ```py
+"""
 100% 25m
+"""
+
 def solution(A, B):
     pass_fish = 0
     downstream_fish = list()
@@ -1452,7 +1494,10 @@ Copyright 2009–2018 by Codility Limited. All Rights Reserved. Unauthorized cop
 ```
 
 ```py
+"""
 12% 7m
+"""
+
 def solution(S):
     if len(S) == 0:
         return 1
@@ -1471,7 +1516,10 @@ def solution(S):
 ```
 
 ```py
+"""
 50% 7m
+"""
+
 def solution(S):
     if len(S) == 0:
         return 1
@@ -1492,7 +1540,10 @@ def solution(S):
 ```
 
 ```py
+"""
 100% 9m
+"""
+
 def solution(S):
     if len(S) == 0:
         return 1
@@ -1550,7 +1601,10 @@ Copyright 2009–2018 by Codility Limited. All Rights Reserved. Unauthorized cop
 ```
 
 ```py
+"""
 100% 26m
+"""
+
 def solution(A):
     half = len(A) // 2
     
@@ -1619,8 +1673,11 @@ Copyright 2009–2018 by Codility Limited. All Rights Reserved. Unauthorized cop
 ```
 
 ```py
+"""
 33% 18m
 [1, 2] -> error
+"""
+
 def solution(A):
     half = len(A) // 2
     
@@ -1650,9 +1707,12 @@ def solution(A):
 ```
 
 ```py
+"""
 44% 2m
 optimize: early return 0 if there is no leader
 [4, 4, 2, 5, 3, 4, 4, 4] -> expected 3, but 2
+"""
+
 def solution(A):
     half = len(A) // 2
     
@@ -1685,8 +1745,11 @@ def solution(A):
 ```
 
 ```py
+"""
 66% 21m
 optimize: go through all index
+"""
+
 def solution(A):
     half = len(A) // 2
     
@@ -1719,8 +1782,11 @@ def solution(A):
 ```
 
 ```py
+"""
 77% 4m
 optimize: avoid check element in list
+"""
+
 def solution(A):
     half = len(A) // 2
     
@@ -1754,8 +1820,11 @@ def solution(A):
 ```
 
 ```py
+"""
 100% 3m
 optimize: avoid pop first element from list, it takes O(N)
+"""
+
 def solution(A):
     half = len(A) // 2
     
