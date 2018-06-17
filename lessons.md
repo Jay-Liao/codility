@@ -52,7 +52,7 @@ expected worst-case space complexity is O(1).
 Copyright 2009–2018 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.
 ```
 
-```py
+```python
 def solution(N):
     # shift N
     while N % 2 != 1:
@@ -117,7 +117,7 @@ In your solution, focus on correctness. The performance of your solution will no
 Copyright 2009–2018 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.
 ```
 
-```py
+```python
 def solution(A, K):
     if len(A) <= 1 or len(A) == K:
         return A
@@ -166,7 +166,7 @@ expected worst-case time complexity is O(N);
 expected worst-case space complexity is O(1) (not counting the storage required for input arguments).
 Copyright 2009–2018 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.
 ```
-```py
+```python
 def solution(A):
     num_map = dict()
     for num in A:
@@ -214,7 +214,7 @@ expected worst-case space complexity is O(1).
 Copyright 2009–2018 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.
 ```
 
-```py
+```python
 def solution(X, Y, D):
     distance = Y - X
     jumps = distance // D
@@ -255,7 +255,7 @@ expected worst-case time complexity is O(N);
 expected worst-case space complexity is O(1) (not counting the storage required for input arguments).
 Copyright 2009–2018 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.
 ```
-```py
+```python
 def solution(A):
     expected_sum = 0
     for i in range(1, len(A) + 2):
@@ -316,7 +316,7 @@ expected worst-case time complexity is O(N);
 expected worst-case space complexity is O(N) (not counting the storage required for input arguments).
 Copyright 2009–2018 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.
 ```
-```py
+```python
 def solution(A):
     # accumulate sum
     sum = 0
@@ -390,7 +390,7 @@ expected worst-case space complexity is O(X) (not counting the storage required 
 Copyright 2009–2018 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.
 ```
 
-```py
+```python
 def solution(X, A):
     record_map = dict()
     for i in range(1, X+1):
@@ -433,7 +433,7 @@ expected worst-case space complexity is O(N) (not counting the storage required 
 Copyright 2009–2018 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.
 ```
 
-```py
+```python
 def solution(A):
     max_num = max(A)
     if max_num < 0:
@@ -503,7 +503,7 @@ expected worst-case space complexity is O(N) (not counting the storage required 
 Copyright 2009–2018 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.
 ```
 
-```py
+```python
 def solution(A):
     num_map = dict()
     sum = 0
@@ -588,7 +588,7 @@ expected worst-case space complexity is O(N) (not counting the storage required 
 Copyright 2009–2018 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.
 ```
 
-```py
+```python
 def solution(N, A):
     max_counter = N + 1
     counter_map = dict()
@@ -643,7 +643,7 @@ expected worst-case space complexity is O(1).
 Copyright 2009–2018 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.
 ```
 
-```py
+```python
 def solution(A, B, K):
     answer = B // K - A // K
     if A % K == 0:
@@ -699,7 +699,7 @@ expected worst-case space complexity is O(1) (not counting the storage required 
 Copyright 2009–2018 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.
 ```
 
-```py
+```python
 def solution(A):
     all_west = 0
     for num in A:
@@ -768,7 +768,7 @@ expected worst-case space complexity is O(N) (not counting the storage required 
 Copyright 2009–2018 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.
 ```
 
-```py
+```python
 def solution(S, P, Q):
     answers = list()
     for index in range(len(P)):
@@ -835,7 +835,7 @@ expected worst-case space complexity is O(N) (not counting the storage required 
 Copyright 2009–2018 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.
 ```
 
-```py
+```python
 """
 ref: https://www.martinkysel.com/codility-minavgtwoslice-solution/
 """
@@ -911,7 +911,7 @@ expected worst-case space complexity is O(1) (not counting the storage required 
 Copyright 2009–2018 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.
 ```
 
-```py
+```python
 """
 44% 22m
 """
@@ -923,7 +923,7 @@ def solution(A):
     return A[0] * A[1] * A[2]
 ```
 
-```py
+```python
 """
 77% 18m
 """
@@ -966,7 +966,7 @@ def solution(A):
     return candidates[0]
 ```
 
-```py
+```python
 """
 100% 8m
 """
@@ -1030,7 +1030,7 @@ expected worst-case space complexity is O(N) (not counting the storage required 
 Copyright 2009–2018 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.
 ```
 
-```py
+```python
 """
 100% 2m
 """
@@ -1081,7 +1081,7 @@ expected worst-case space complexity is O(N) (not counting the storage required 
 Copyright 2009–2018 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.
 ```
 
-```py
+```python
 """
 75% 15m
 """
@@ -1104,7 +1104,7 @@ def is_triangular(a, b, c):
     return (a + b > c) and (a + c) > b and (b + c) > a
 ```
 
-```py
+```python
 """
 100% 26m
 ref: https://codesays.com/2014/solution-to-triangle-by-codility/
@@ -1175,7 +1175,7 @@ expected worst-case space complexity is O(N) (not counting the storage required 
 Copyright 2009–2018 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.
 ```
 
-```py
+```python
 """
 56% 12m
 """
@@ -1194,7 +1194,7 @@ def solution(A):
         return intersects
 ```
 
-```py
+```python
 """
 100% 57m
 ref: http://www.lucainvernizzi.net/blog/2014/11/21/codility-beta-challenge-number-of-disc-intersections/
@@ -1249,7 +1249,7 @@ expected worst-case space complexity is O(N) (not counting the storage required 
 Copyright 2009–2018 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.
 ```
 
-```py
+```python
 """
 100% 60m
 ref: https://www.martinkysel.com/codility-stonewall-solution/
@@ -1304,7 +1304,7 @@ expected worst-case space complexity is O(N) (not counting the storage required 
 Copyright 2009–2018 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.
 ```
 
-```py
+```python
 """
 50% 20m
 """
@@ -1335,7 +1335,7 @@ def solution(S):
     return 1
 ```
 
-```py
+```python
 """
 100% 10m
 ref: https://codesays.com/2014/solution-to-brackets-by-codility/
@@ -1416,7 +1416,7 @@ expected worst-case space complexity is O(N) (not counting the storage required 
 Copyright 2009–2018 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.
 ```
 
-```py
+```python
 """
 37% 16m
 """
@@ -1439,7 +1439,7 @@ def solution(A, B):
     return len(fish_stack)
 ```
 
-```py
+```python
 """
 100% 25m
 """
@@ -1493,7 +1493,7 @@ expected worst-case space complexity is O(1) (not counting the storage required 
 Copyright 2009–2018 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.
 ```
 
-```py
+```python
 """
 12% 7m
 """
@@ -1515,7 +1515,7 @@ def solution(S):
     return 1
 ```
 
-```py
+```python
 """
 50% 7m
 """
@@ -1539,7 +1539,7 @@ def solution(S):
     return 1
 ```
 
-```py
+```python
 """
 100% 9m
 """
@@ -1600,7 +1600,7 @@ expected worst-case space complexity is O(1) (not counting the storage required 
 Copyright 2009–2018 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.
 ```
 
-```py
+```python
 """
 100% 26m
 """
@@ -1672,7 +1672,7 @@ expected worst-case space complexity is O(N) (not counting the storage required 
 Copyright 2009–2018 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.
 ```
 
-```py
+```python
 """
 33% 18m
 [1, 2] -> error
@@ -1706,7 +1706,7 @@ def solution(A):
     return count
 ```
 
-```py
+```python
 """
 44% 2m
 optimize: early return 0 if there is no leader
@@ -1744,7 +1744,7 @@ def solution(A):
     return count
 ```
 
-```py
+```python
 """
 66% 21m
 optimize: go through all index
@@ -1781,7 +1781,7 @@ def solution(A):
     return count
 ```
 
-```py
+```python
 """
 77% 4m
 optimize: avoid check element in list
@@ -1819,7 +1819,7 @@ def solution(A):
     return count
 ```
 
-```py
+```python
 """
 100% 3m
 optimize: avoid pop first element from list, it takes O(N)
@@ -1903,7 +1903,7 @@ expected worst-case space complexity is O(1) (not counting the storage required 
 Copyright 2009–2018 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.
 ```
 
-```py
+```python
 """
 44% 30m
 For example, for the input [8, 9, 3, 6, 1, 2] the solution returned a wrong answer (got 1 expected 3).
@@ -1969,9 +1969,103 @@ def solution(A):
 ---
 ```
 Task description
+A non-empty array A consisting of N integers is given.
+
+A triplet (X, Y, Z), such that 0 ≤ X < Y < Z < N, is called a double slice.
+
+The sum of double slice (X, Y, Z) is the total of A[X + 1] + A[X + 2] + ... + A[Y − 1] + A[Y + 1] + A[Y + 2] + ... + A[Z − 1].
+
+For example, array A such that:
+
+    A[0] = 3
+    A[1] = 2
+    A[2] = 6
+    A[3] = -1
+    A[4] = 4
+    A[5] = 5
+    A[6] = -1
+    A[7] = 2
+contains the following example double slices:
+
+double slice (0, 3, 6), sum is 2 + 6 + 4 + 5 = 17,
+double slice (0, 3, 7), sum is 2 + 6 + 4 + 5 − 1 = 16,
+double slice (3, 4, 5), sum is 0.
+The goal is to find the maximal sum of any double slice.
+
+Write a function:
+
+def solution(A)
+
+that, given a non-empty array A consisting of N integers, returns the maximal sum of any double slice.
+
+For example, given:
+
+    A[0] = 3
+    A[1] = 2
+    A[2] = 6
+    A[3] = -1
+    A[4] = 4
+    A[5] = 5
+    A[6] = -1
+    A[7] = 2
+the function should return 17, because no double slice of array A has a sum of greater than 17.
+
+Assume that:
+
+N is an integer within the range [3..100,000];
+each element of array A is an integer within the range [−10,000..10,000].
+Complexity:
+
+expected worst-case time complexity is O(N);
+expected worst-case space complexity is O(N) (not counting the storage required for input arguments).
+Copyright 2009–2018 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.
 ```
 
-```py
+```python
+"""
+53% 18m
+Timeout: O(N**3)
+"""
+
+def solution(A):
+    if len(A) < 3:
+        return 0
+    
+    max_sum = 0
+    for i in range(len(A) - 2):
+        for j in range(i + 1, len(A) - 1):
+            for k in range(j + 1, len(A)):
+                slice1_sum = sum(A[i + 1:j])
+                slice2_sum = sum(A[j + 1:k])
+                max_sum = max(max_sum, slice1_sum + slice2_sum)
+    return max_sum
+```
+
+```python
+"""
+100% 57m
+ref: https://rafal.io/posts/codility-max-double-slice-sum.html
+"""
+
+def solution(A):
+    n = len(A)
+    if n < 3:
+        return 0
+    
+    s1 = [0] * n
+    # ignore first and last element
+    for index in range(1, n - 1):
+        s1[index] = max(0, s1[index - 1] + A[index])
+        
+    s2 = [0] * n
+    for index in range(n - 2, 0, -1):
+        s2[index] = max(s2[index+1]+A[index], 0)
+        
+    max_double = 0
+    for index in range(1, n - 1):
+        max_double = max(max_double, s1[index - 1] + s2[index + 1])
+        
+    return max_double
 ```
 
 ### 9-3 MaxSliceSum
@@ -1980,5 +2074,5 @@ Task description
 Task description
 ```
 
-```py
+```python
 ```
