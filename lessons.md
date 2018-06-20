@@ -10,7 +10,7 @@ TODO:
 - [x] Lesson 6 - Sorting
 - [x] Lesson 7 - Stacks and Queues
 - [x] Lesson 8 - Leader
-- [ ] Lesson 9 - Maximum slice problem
+- [x] Lesson 9 - Maximum slice problem
 - [ ] Lesson 10 - Prime and composite numbers
 - [ ] Lesson 11 - Sieve of Eratosthenes
 - [ ] Lesson 12 - Euclidean algorithm
@@ -2069,6 +2069,146 @@ def solution(A):
 ```
 
 ### 9-3 MaxSliceSum
+---
+```
+Task description
+A non-empty array A consisting of N integers is given. A pair of integers (P, Q), such that 0 ≤ P ≤ Q < N, is called a slice of array A. The sum of a slice (P, Q) is the total of A[P] + A[P+1] + ... + A[Q].
+
+Write a function:
+
+def solution(A)
+
+that, given an array A consisting of N integers, returns the maximum sum of any slice of A.
+
+For example, given array A such that:
+
+A[0] = 3  A[1] = 2  A[2] = -6
+A[3] = 4  A[4] = 0
+the function should return 5 because:
+
+(3, 4) is a slice of A that has sum 4,
+(2, 2) is a slice of A that has sum −6,
+(0, 1) is a slice of A that has sum 5,
+no other slice of A has sum greater than (0, 1).
+Assume that:
+
+N is an integer within the range [1..1,000,000];
+each element of array A is an integer within the range [−1,000,000..1,000,000];
+the result will be an integer within the range [−2,147,483,648..2,147,483,647].
+Complexity:
+
+expected worst-case time complexity is O(N);
+expected worst-case space complexity is O(N) (not counting the storage required for input arguments).
+Copyright 2009–2018 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.
+```
+
+```python
+"""
+53% 5m
+For example, for the input [-2, 1] the solution returned a wrong answer (got -1 expected 1).
+"""
+
+def solution(A):
+    if len(A) == 0:
+        return 0
+    if len(A) == 1:
+        return A[0]
+        
+    pref = [0] * len(A)
+    pref[0] = A[0]
+    for index in range(1, len(A)):
+        pref[index] = pref[index - 1] + A[index]
+    return max(pref)
+```
+
+
+```python
+"""
+30% 16m
+For example, for the input [-2, -2] the solution returned a wrong answer (got 0 expected -2).
+"""
+
+def solution(A):
+    if len(A) == 0:
+        return 0
+    if len(A) == 1:
+        return A[0]
+    
+    max_lst = [0] * len(A)
+    max_lst[0] = A[0]
+    for index in range(1, len(max_lst)):
+        max_lst[index] = max(0, A[index], A[index - 1] + A[index])
+    return max(max_lst)
+```
+
+```python
+"""
+53% 2m
+Fix: max_lst[index] = max(A[index], A[index - 1] + A[index])
+For example, for the input [1, 1, 1] the solution returned a wrong answer (got 2 expected 3).
+"""
+
+def solution(A):
+    if len(A) == 0:
+        return 0
+    if len(A) == 1:
+        return A[0]
+    
+    max_lst = [0] * len(A)
+    max_lst[0] = A[0]
+    for index in range(1, len(max_lst)):
+        max_lst[index] = max(A[index], A[index - 1] + A[index])
+    return max(max_lst)
+```
+
+```python
+"""
+100% 5m
+Fix: max_lst[index] = max(A[index], max_lst[index - 1] + A[index])
+"""
+
+def solution(A):
+    if len(A) == 0:
+        return 0
+    if len(A) == 1:
+        return A[0]
+    
+    max_lst = [0] * len(A)
+    max_lst[0] = A[0]
+    for index in range(1, len(max_lst)):
+        max_lst[index] = max(A[index], max_lst[index - 1] + A[index])
+    return max(max_lst)
+```
+
+## Lesson 10 - Prime and composite numbers
+### 10-1 CountFactors
+---
+```
+Task description
+```
+
+```python
+```
+
+### 10-2 MinPerimeterRectangle
+---
+```
+Task description
+```
+
+```python
+```
+
+### 10-3 Flags
+---
+```
+Task description
+```
+
+```python
+```
+
+### 10-4 Peaks
 ---
 ```
 Task description
