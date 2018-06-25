@@ -2185,9 +2185,77 @@ def solution(A):
 ---
 ```
 Task description
+A positive integer D is a factor of a positive integer N if there exists an integer M such that N = D * M.
+
+For example, 6 is a factor of 24, because M = 4 satisfies the above condition (24 = 6 * 4).
+
+Write a function:
+
+def solution(N)
+
+that, given a positive integer N, returns the number of its factors.
+
+For example, given N = 24, the function should return 8, because 24 has 8 factors, namely 1, 2, 3, 4, 6, 8, 12, 24. There are no other factors of 24.
+
+Assume that:
+
+N is an integer within the range [1..2,147,483,647].
+Complexity:
+
+expected worst-case time complexity is O(sqrt(N));
+expected worst-case space complexity is O(1).
+Copyright 2009–2018 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.
 ```
 
 ```python
+"""
+35% 22m
+RUNTIME ERROR: N=16, N=36
+TIMEOUT ERROR: N=3,628,800=10!, N=5,621,892, N=4,999,696
+"""
+
+def solution(N):
+    max_factor = 0
+    factors = 0
+    for i in range(1, N + 1):
+        if i == max_factor:
+            return factors
+        if N % i == 0:
+            max_factor = max(i, N // i)
+            factors += 2
+```
+
+```python
+"""
+50% 17m
+TIMEOUT ERROR: N=1,000,000,000, N=MAX_INT, N=2147,395,600
+"""
+
+def solution(N):
+    prime_map = dict()
+    for i in range(2, N + 1):
+        while is_prime(i) and N % i == 0:
+            N = N // i
+            if i not in prime_map:
+                prime_map[i] = 0
+            prime_map[i] = prime_map[i] + 1
+    factors = 1
+    for _, v in prime_map.items():
+        factors *= (v + 1)
+
+    return factors
+        
+def is_prime(num):
+    if num == 1:
+        return False
+    counter = 0
+    for i in range(1, num + 1):
+        if num % i == 0:
+            counter += 1
+        if counter > 2:
+            return False
+    
+    return counter == 2
 ```
 
 ### 10-2 MinPerimeterRectangle
