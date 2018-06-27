@@ -2258,6 +2258,24 @@ def is_prime(num):
     return counter == 2
 ```
 
+```python
+"""
+100% 6m
+ref: lesson pdf
+"""
+
+def solution(N):
+    i = 1
+    factors = 0
+    while i * i < N:
+        if N % i == 0:
+            factors += 2
+        i += 1
+    if i * i == N:
+        factors += 1
+    return factors
+```
+
 ### 10-2 MinPerimeterRectangle
 ---
 ```
@@ -2265,6 +2283,22 @@ Task description
 ```
 
 ```python
+"""
+100% 10m
+"""
+
+def solution(N):
+    min_sum_of_sides = None
+    i = 1
+    while i * i < N:
+        if N % i == 0:
+            sum_of_sides = i + N // i
+            min_sum_of_sides = sum_of_sides if min_sum_of_sides is None else min(min_sum_of_sides, sum_of_sides)
+        i += 1
+    if i * i == N:
+        sum_of_sides = i * 2
+        min_sum_of_sides = sum_of_sides if min_sum_of_sides is None else min(min_sum_of_sides, sum_of_sides)
+    return min_sum_of_sides * 2
 ```
 
 ### 10-3 Flags
