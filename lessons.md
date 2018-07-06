@@ -178,6 +178,18 @@ def solution(A):
         if v % 2 == 1:
             return k
 ```
+
+```python
+"""
+100% 3m
+"""
+
+def solution(A):
+    xor_result = 0
+    for num in A:
+        xor_result ^= num
+    return xor_result
+```
 ## Lesson 3 - Time Complexity 
 ### 3-1 FrogJmp 100%
 ---
